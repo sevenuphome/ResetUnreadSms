@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Zero SMS non lus</string>
+	<string name="unreadsms_label">Liste des SMS non lus :</string>
+	<string name="no_unreadsms">Aucun SMS non lus trouvés.</string>
+	<string name="reset_button">Marquer comme lus</string>
+	<string name="reset_done">Tous vos SMS sont maintenant marqués comme lus
+		!</string>
+	<string name="loading_sms">Chargement des SMS non lus...</string>
+	<string name="updating_sms">Mise à jour des SMS non lus...</string>
+</resources>
