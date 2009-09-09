@@ -24,7 +24,7 @@ public class AboutDialog
   {
     super(context);
     setContentView(R.layout.about);
-    setTitle(context.getText(R.string.app_name));
+    setTitle(context.getText(R.string.app_name) + " " + context.getText(R.string.version));
 
     TextView donateLink = (TextView) findViewById(R.id.donate_link);
     donateLink.setMovementMethod(LinkMovementMethod.getInstance());
