@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">0.1</string>
+	<string name="version">1.0</string>
 	<string name="app_name">Zero SMS non lus</string>
 	<string name="unreadsms_label">Liste des SMS non lus :</string>
 	<string name="no_unreadsms">Aucun SMS non lus trouvés.</string>
