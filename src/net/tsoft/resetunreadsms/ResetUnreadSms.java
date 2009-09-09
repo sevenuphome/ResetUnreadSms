@@ -1,15 +1,16 @@
 package net.tsoft.resetunreadsms;
 
-import net.tsoft.resetunreadsms.R;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -34,6 +35,10 @@ public class ResetUnreadSms
     super.onCreate(savedInstanceState);
     setTitle(getText(R.string.unreadsms_label));
     setContentView(R.layout.main);
+
+    TextView donateLink = (TextView) findViewById(R.id.donate_link);
+    donateLink.setMovementMethod(LinkMovementMethod.getInstance());
+
     resetButton = (Button) findViewById(R.id.reset_button);
     resetButton.setOnClickListener(new View.OnClickListener()
     {

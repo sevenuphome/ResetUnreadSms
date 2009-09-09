@@ -8,4 +8,8 @@
 		!</string>
 	<string name="loading_sms">Chargement des SMS non lus...</string>
 	<string name="updating_sms">Mise à jour des SMS non lus...</string>
+	<string name="donate">
+		<a
+			href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Faire un don</a>
+	</string>
 </resources>
