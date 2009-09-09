@@ -6,11 +6,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -28,6 +26,8 @@ public class ResetUnreadSms
 
   private Button resetButton;
 
+  private AboutDialog aboutDialog;
+
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -35,9 +35,6 @@ public class ResetUnreadSms
     super.onCreate(savedInstanceState);
     setTitle(getText(R.string.unreadsms_label));
     setContentView(R.layout.main);
-
-    TextView donateLink = (TextView) findViewById(R.id.donate_link);
-    donateLink.setMovementMethod(LinkMovementMethod.getInstance());
 
     resetButton = (Button) findViewById(R.id.reset_button);
     resetButton.setOnClickListener(new View.OnClickListener()
@@ -49,6 +46,18 @@ public class ResetUnreadSms
         fillList();
       }
     });
+
+    aboutDialog = new AboutDialog(this);
+    Button aboutButton = (Button) findViewById(R.id.about_button);
+    aboutButton.setOnClickListener(new View.OnClickListener()
+    {
+      @Override
+      public void onClick(View v)
+      {
+        aboutDialog.show();
+      }
+    });
+
     fillList();
   }
 
