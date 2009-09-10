@@ -20,9 +20,17 @@ public class ResetUnreadSms
 {
   private final static String SMS_CONTENT_URI = "content://sms";
   private final static String READ_CONDITION = "read=0";
-  private final static String READ = "read";
+  /*
+   * SMS fields thread_id, address, person, date, protocol, read, status, type,
+   * reply_path_present, subject, body,
+   */
+
   private final static String SMS_ID = "_ID";
   private final static String SMS_BODY = "body";
+  private final static String SMS_PERSON = "person";
+  private final static String SMS_READ = "read";
+  private final static String SMS_STATUS = "status";
+  private final static String SMS_ADDRESS = "address";
 
   private Button resetButton;
 
@@ -63,30 +71,34 @@ public class ResetUnreadSms
 
   private void resetUnreadSms()
   {
-    ProgressDialog progressDialog = ProgressDialog.show(this, "", this
-        .getString(R.string.updating_sms), true);
-    progressDialog.show();
+    ProgressDialog progressDialog = ProgressDialog.show(this, "", this.getString(R.string.updating_sms), true,
+        false);
+
     ContentValues values = new ContentValues(1);
-    values.put(READ, 1);
+    values.put(SMS_READ, 1);
     this.getContentResolver().update(Uri.parse(SMS_CONTENT_URI), values, null, null);
+
     Toast.makeText(this, R.string.reset_done, Toast.LENGTH_LONG).show();
-    progressDialog.hide();
+
+    progressDialog.dismiss();
   }
 
   private void fillList()
   {
-    ProgressDialog progressDialog = ProgressDialog.show(this, "", this
-        .getString(R.string.loading_sms), true);
-    progressDialog.show();
+    ProgressDialog progressDialog = ProgressDialog.show(this, "", this.getString(R.string.loading_sms), true,
+        false);
+
     Cursor c = this.getContentResolver().query(Uri.parse(SMS_CONTENT_URI),
-        new String[] { SMS_ID, SMS_BODY }, READ_CONDITION, null, null);
+        new String[] { SMS_ID, SMS_BODY, SMS_ADDRESS, SMS_PERSON, SMS_READ, SMS_STATUS },
+        READ_CONDITION, null, null);
     resetButton.setEnabled(c.getCount() != 0);
     startManagingCursor(c);
-    String[] from = new String[] { SMS_BODY };
-    int[] to = new int[] { android.R.id.text1 };
-    SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this,
-        android.R.layout.simple_list_item_2, c, from, to);
+    String[] from = new String[] { SMS_BODY, SMS_ADDRESS };
+    int[] to = new int[] { R.id.sms_content, R.id.sms_address };
+    SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this, R.layout.sms, c, from,
+        to);
     setListAdapter(simpleCursorAdapter);
-    progressDialog.hide();
+
+    progressDialog.dismiss();
   }
 }

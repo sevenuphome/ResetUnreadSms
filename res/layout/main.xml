@@ -11,6 +11,7 @@
 		<Button android:id="@+id/reset_button" android:text="@string/reset_button"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:layout_weight="2" />
+
 		<Button android:id="@+id/about_button" android:text="@string/about_label"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:layout_weight="1" />
