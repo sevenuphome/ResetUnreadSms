@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">重置未读短信</string>
+	<string name="unreadsms_label">未读短信列表 :</string>
+	<string name="no_unreadsms">没有未读短信。</string>
+	<string name="reset_button">标记所有为已读</string>
+	<string name="reset_done">您所有的短信已标记为已读 !</string>
+	<string name="loading_sms">正在载入未读短信...</string>
+	<string name="updating_sms">正在更新未读短信...</string>
+	<string name="about_label">关于</string>
+	<string name="about_content">T-Soft 2009</string>
+	<string name="ok">确认</string>
+	<string name="donate">
+		如果此程序防止了你把手机甩出窗外的行为 :-)
+		<a
+			href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">请捐赠</a>
+		!
+	</string>
+	<string name="sms_from">
+		<b>从 : </b>
+	</string>
+	<string name="sms_address">
+		<b>从 : </b>
+	</string>
+	<string name="sms_content">
+		<b>内容 : </b>
+	</string>
+	<string name="sms_status">
+		<b>状态 : </b>
+	</string>
+</resources>
