@@ -91,7 +91,7 @@ public class ResetUnreadSms
     Cursor c = this.getContentResolver().query(Uri.parse(SMS_CONTENT_URI),
         new String[] { SMS_ID, SMS_BODY, SMS_ADDRESS, SMS_PERSON, SMS_READ, SMS_STATUS },
         READ_CONDITION, null, null);
-    resetButton.setEnabled(c.getCount() != 0);
+    //resetButton.setEnabled(c.getCount() != 0);
     startManagingCursor(c);
     String[] from = new String[] { SMS_BODY, SMS_ADDRESS };
     int[] to = new int[] { R.id.sms_content, R.id.sms_address };
