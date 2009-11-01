@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.3</string>
+	<string name="version">1.4</string>
 	<string name="app_name">Reset Unread Sms</string>
   <string name="unreadsms_label">Unread Sms list :</string>
   <string name="no_unreadsms">No unread sms found.</string>
