@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:admobsdk="http://schemas.android.com/apk/res/net.tsoft.resetunreadsms"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	<ListView android:id="@android:id/list" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:layout_weight="1.0" />
-	<TextView android:id="@android:id/empty" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/no_unreadsms" />
-	<LinearLayout android:orientation="horizontal"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<Button android:id="@+id/reset_button" android:text="@string/reset_button"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_weight="2" />
+	<com.admob.android.ads.AdView android:id="@+id/ad"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		admobsdk:backgroundColor="#112255" admobsdk:textColor="#FFFFFF"
+		admobsdk:keywords="Android application" />
+	<include layout="@layout/divider" />
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<ListView android:id="@android:id/list" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1.0" />
+		<TextView android:id="@android:id/empty"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="@string/no_unreadsms" />
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:id="@+id/reset_button" android:text="@string/reset_button"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_weight="2" />
 
-		<Button android:id="@+id/about_button" android:text="@string/about_label"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_weight="1" />
+			<Button android:id="@+id/about_button" android:text="@string/about_label"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_weight="1" />
+		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>
