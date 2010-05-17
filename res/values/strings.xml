@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.5</string>
+	<string name="version">1.6</string>
 	<string name="app_name">Reset Unread Sms</string>
   <string name="unreadsms_label">Unread Sms list :</string>
   <string name="no_unreadsms">No unread sms found.</string>
@@ -9,7 +9,7 @@
   <string name="loading_sms">Loading unread SMS...</string>
   <string name="updating_sms">Updating unread SMS...</string>
   <string name="about_label">About</string>
-  <string name="about_content">T-Soft 2009</string>
+  <string name="about_content">Kamosoft 2009</string>
   <string name="ok">Ok</string>
   <string name="donate">
     If this application prevent you from throwing your phone out the
