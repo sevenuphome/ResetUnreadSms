@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">重設未讀短信</string>
-	<string name="unreadsms_label">未讀短信清單 :</string>
-	<string name="no_unreadsms">沒有未讀短信。</string>
-	<string name="reset_button">標記所有為已讀</string>
-	<string name="reset_done">您所有的短信已標記為已讀 !</string>
-	<string name="loading_sms">正在載入未讀短信...</string>
-	<string name="updating_sms">正在更新未讀短信...</string>
-	<string name="about_label">關於</string>
-	<string name="about_content">T-Soft 2009</string>
-	<string name="ok">確認</string>
-	<string name="donate">
-		如果此程式防止了你把手機甩出窗外的行為 :-)
-		<a
-			href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">請捐贈</a>
-		!
-	</string>
-	<string name="sms_from">
-		<b>從 : </b>
-	</string>
-	<string name="sms_address">
-		<b>從 : </b>
-	</string>
-	<string name="sms_content">
-		<b>內容 : </b>
-	</string>
-	<string name="sms_status">
-		<b>狀態 : </b>
-	</string>
+    <string name="app_name">重設未讀短信</string>
+    <string name="unreadsms_label">未讀短信清單 :</string>
+    <string name="no_unreadsms">沒有未讀短信。</string>
+    <string name="reset_button">標記所有為已讀</string>
+    <string name="reset_done">您所有的短信已標記為已讀 !</string>
+    <string name="loading_sms">正在載入未讀短信...</string>
+    <string name="updating_sms">正在更新未讀短信...</string>
+    <string name="about_label">關於</string>
+    <string name="about_content">Kamosoft 2013</string>
+    <string name="ok">確認</string>
+    <string name="donate">
+        如果此程式防止了你把手機甩出窗外的行為 :
+    </string>
+    <string name="donate_link">
+        <a
+                href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">
+            請捐贈
+        </a>
+    </string>
+    <string name="sms_from">
+        <b>從 :</b>
+    </string>
+    <string name="sms_address">
+        <b>從 :</b>
+    </string>
+    <string name="sms_content">
+        <b>內容 :</b>
+    </string>
+    <string name="sms_status">
+        <b>狀態 :</b>
+    </string>
 </resources>
