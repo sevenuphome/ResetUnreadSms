@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:admobsdk="http://schemas.android.com/apk/res/net.tsoft.resetunreadsms"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	<com.admob.android.ads.AdView android:id="@+id/ad"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		admobsdk:backgroundColor="#112255" admobsdk:textColor="#FFFFFF"
-		admobsdk:keywords="Android application" />
 	<include layout="@layout/divider" />
 	<LinearLayout android:orientation="vertical"
 		android:layout_width="fill_parent" android:layout_height="fill_parent">

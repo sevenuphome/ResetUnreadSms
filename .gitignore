@@ -2,3 +2,6 @@
 *.ipr
 *.iws
 gen
+.gradle
+.idea
+build
