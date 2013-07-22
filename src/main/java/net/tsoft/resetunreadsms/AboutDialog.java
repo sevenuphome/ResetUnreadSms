@@ -21,7 +21,7 @@ public class AboutDialog
     public AboutDialog(Context context) {
         super(context);
         setContentView(R.layout.about);
-        setTitle(context.getText(R.string.app_name) + " " + context.getText(R.string.version));
+        setTitle(context.getText(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
 
         Button ok = (Button) findViewById(R.id.ok_button);
         ok.setOnClickListener(new View.OnClickListener() {

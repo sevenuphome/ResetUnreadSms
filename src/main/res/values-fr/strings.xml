@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Zero SMS non lus</string>
+    <string name="app_name">Zéro SMS non lus</string>
     <string name="unreadsms_label">Liste des SMS non lus :</string>
     <string name="no_unreadsms">Aucun SMS non lus trouvés.\n\n\nCliquez sur <i>Marquer comme lu</i>\ncertains SMS peuvent être cachés !</string>
     <string name="thanks">La chasse aux SMS non lus est terminée\n\n<b>Faîtes un don :)</b></string>

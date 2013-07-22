@@ -61,6 +61,7 @@ public class ResetUnreadSms
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        setTitle(getString(R.string.app_name) + " v" + BuildConfig.VERSION_NAME);
 
         mResetButton = (Button) findViewById(R.id.reset_button);
         mResetButton.setOnClickListener(new View.OnClickListener() {

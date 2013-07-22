@@ -24,4 +24,24 @@ android {
         versionCode 8
         versionName '1.8'
     }
+
+    signingConfigs {
+        release {
+            storeFile file('../kamosoft.keystore')
+            keyAlias 'tbruyelle'
+            keyPassword "$keypass"
+            storePassword "$keypass"
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfig "public static final String VERSION_NAME = \"${defaultConfig.versionName}\";"
+            signingConfig signingConfigs.release
+        }
+        debug {
+            buildConfig "public static final String VERSION_NAME = \"${defaultConfig.versionName}-DEBUG\";"
+        }
+    }
+
 }
