@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package net.tsoft.resetunreadsms;
 
@@ -12,32 +12,24 @@ import android.widget.TextView;
 
 /**
  * @author tom
- * 
  */
 public class AboutDialog
-    extends Dialog
-{
-  /**
-   * @param context
-   */
-  public AboutDialog(Context context)
-  {
-    super(context);
-    setContentView(R.layout.about);
-    setTitle(context.getText(R.string.app_name) + " " + context.getText(R.string.version));
+        extends Dialog {
+    /**
+     * @param context
+     */
+    public AboutDialog(Context context) {
+        super(context);
+        setContentView(R.layout.about);
+        setTitle(context.getText(R.string.app_name) + " " + context.getText(R.string.version));
 
-    TextView donateLink = (TextView) findViewById(R.id.donate_link);
-    donateLink.setMovementMethod(LinkMovementMethod.getInstance());
-
-    Button ok = (Button) findViewById(R.id.ok_button);
-    ok.setOnClickListener(new View.OnClickListener()
-    {
-      @Override
-      public void onClick(View v)
-      {
-        AboutDialog.this.dismiss();
-      }
-    });
-  }
+        Button ok = (Button) findViewById(R.id.ok_button);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AboutDialog.this.dismiss();
+            }
+        });
+    }
 
 }

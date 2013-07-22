@@ -2,18 +2,18 @@
 <resources>
     <string name="app_name">Zero SMS non lus</string>
     <string name="unreadsms_label">Liste des SMS non lus :</string>
-    <string name="no_unreadsms">Aucun SMS non lus trouvés.</string>
+    <string name="no_unreadsms">Aucun SMS non lus trouvés.\n\n\nCliquez sur \'Marquer comme lu\'\ncertains SMS peuvent être cachés !</string>
     <string name="reset_button">Marquer comme lus</string>
     <string name="reset_done">Tous vos SMS sont maintenant marqués comme lus
         !
     </string>
-    <string name="loading_sms">Chargement des SMS non lus...</string>
-    <string name="updating_sms">Mise à jour des SMS non lus...</string>
+    <string name="loading_sms">Chargement des SMS non lus…</string>
+    <string name="updating_sms">Mise à jour des SMS non lus…</string>
     <string name="about_label">A propos</string>
     <string name="about_content">Kamosoft 2013</string>
     <string name="ok">Ok</string>
     <string name="donate">Si cette application vous a empêché de balancer votre téléphone par la
-        fenêtre :
+        fenêtre
     </string>
     <string name="donate_link">
         <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">
@@ -32,5 +32,5 @@
     <string name="sms_status">
         <b>Status :</b>
     </string>
-    <string name="processing">Traiement en cours...</string>
+    <string name="processing">Traitement en cours…</string>
 </resources>

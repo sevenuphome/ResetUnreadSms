@@ -5,8 +5,8 @@
     <string name="no_unreadsms">没有未读短信。</string>
     <string name="reset_button">标记所有为已读</string>
     <string name="reset_done">您所有的短信已标记为已读 !</string>
-    <string name="loading_sms">正在载入未读短信...</string>
-    <string name="updating_sms">正在更新未读短信...</string>
+    <string name="loading_sms">正在载入未读短信…</string>
+    <string name="updating_sms">正在更新未读短信…</string>
     <string name="about_label">关于</string>
     <string name="about_content">Kamosoft 2013</string>
     <string name="ok">确认</string>

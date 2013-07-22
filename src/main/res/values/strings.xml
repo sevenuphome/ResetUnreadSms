@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">1.6</string>
     <string name="app_name">Reset Unread Sms</string>
     <string name="unreadsms_label">Unread Sms list :</string>
-    <string name="no_unreadsms">No unread sms found.</string>
+    <string name="no_unreadsms">No unread sms found.\n\n\nClick on \'Mark all as read\'\nsome SMS are sneaky !</string>
     <string name="reset_button">Mark all as read</string>
     <string name="reset_done">All your SMS have been marked as read !</string>
-    <string name="loading_sms">Loading unread SMS...</string>
-    <string name="updating_sms">Updating unread SMS...</string>
+    <string name="loading_sms">Loading unread SMS…</string>
+    <string name="updating_sms">Updating unread SMS…</string>
     <string name="about_label">About</string>
+    <string name="about">\?</string>
     <string name="about_content">Kamosoft 2013</string>
     <string name="ok">Ok</string>
     <string name="donate">
@@ -32,5 +32,5 @@
     <string name="sms_status">
         <b>Status :</b>
     </string>
-    <string name="processing">Processing...</string>
+    <string name="processing">Processing…</string>
 </resources>

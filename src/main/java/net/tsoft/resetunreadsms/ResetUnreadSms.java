@@ -3,14 +3,23 @@ package net.tsoft.resetunreadsms;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import com.paypal.android.MEP.CheckoutButton;
+import com.paypal.android.MEP.PayPal;
+
+import java.util.Locale;
 
 /**
  * @author tom
@@ -69,7 +78,42 @@ public class ResetUnreadSms
             }
         });
 
+        initLibrary();
+        Log.i("RUS", "paypal instance=" + PayPal.getInstance());
+        CheckoutButton checkoutButton = PayPal.getInstance().getCheckoutButton(this, PayPal.BUTTON_278x43, CheckoutButton.TEXT_DONATE);
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchBrowser(ResetUnreadSms.this, getString(R.string.paypal_link));
+            }
+        });
+        ((FrameLayout) findViewById(R.id.donate_button)).addView(checkoutButton);
+
         fillList();
+    }
+
+    public void initLibrary() {
+        PayPal pp = PayPal.getInstance();
+
+        if (pp == null) {  // Test to see if the library is already initialized
+
+            // This main initialization call takes your Context, AppID, and target server
+            pp = PayPal.initWithAppID(this, "thomas.bruyelle@gmail.com", PayPal.ENV_NONE);
+
+            // Required settings:
+
+            // Set the language for the library
+//            pp.setLanguage(Locale.getDefault().getLanguage());
+
+            // Some Optional settings:
+
+            // Sets who pays any transaction fees. Possible values are:
+            // FEEPAYER_SENDER, FEEPAYER_PRIMARYRECEIVER, FEEPAYER_EACHRECEIVER, and FEEPAYER_SECONDARYONLY
+            pp.setFeesPayer(PayPal.FEEPAYER_EACHRECEIVER);
+
+            // true = transaction requires shipping
+            pp.setShippingEnabled(true);
+        }
     }
 
     private void resetUnreadSms() {
@@ -113,5 +157,10 @@ public class ResetUnreadSms
         int[] to = new int[]{R.id.sms_content, R.id.sms_address};
         SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this, R.layout.sms, c, from, to);
         setListAdapter(simpleCursorAdapter);
+    }
+
+    public static void launchBrowser(final Context context, String url) {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url));
+        context.startActivity(intent);
     }
 }
