@@ -22,16 +22,16 @@
         </a>
     </string>
     <string name="sms_from">
-        <b>From :</b>
+        <b>From</b>
     </string>
     <string name="sms_address">
-        <b>From :</b>
+        <b>From</b>
     </string>
     <string name="sms_content">
-        <b>Content :</b>
+        <b>Content</b>
     </string>
     <string name="sms_status">
-        <b>Status :</b>
+        <b>Status</b>
     </string>
     <string name="processing">Processing…</string>
 </resources>

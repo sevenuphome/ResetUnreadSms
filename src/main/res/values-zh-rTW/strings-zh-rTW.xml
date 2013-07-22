@@ -20,15 +20,15 @@
         </a>
     </string>
     <string name="sms_from">
-        <b>從 :</b>
+        <b>從</b>
     </string>
     <string name="sms_address">
-        <b>從 :</b>
+        <b>從</b>
     </string>
     <string name="sms_content">
-        <b>內容 :</b>
+        <b>內容</b>
     </string>
     <string name="sms_status">
-        <b>狀態 :</b>
+        <b>狀態</b>
     </string>
 </resources>
