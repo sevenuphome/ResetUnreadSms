@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Zero SMS non lus</string>
     <string name="unreadsms_label">Liste des SMS non lus :</string>
-    <string name="no_unreadsms">Aucun SMS non lus trouvés.\n\n\nCliquez sur \'Marquer comme lu\'\ncertains SMS peuvent être cachés !</string>
+    <string name="no_unreadsms">Aucun SMS non lus trouvés.\n\n\nCliquez sur <i>Marquer comme lu</i>\ncertains SMS peuvent être cachés !</string>
     <string name="reset_button">Marquer comme lus</string>
     <string name="reset_done">Tous vos SMS sont maintenant marqués comme lus
         !

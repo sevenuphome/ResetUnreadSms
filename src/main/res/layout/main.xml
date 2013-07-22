@@ -5,27 +5,14 @@
                 android:layout_height="fill_parent"
                 android:padding="8dp">
 
-    <LinearLayout
-            android:orientation="horizontal"
+    <Button
+            android:id="@+id/reset_button"
+            android:text="@string/reset_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true">
-
-        <Button
-                android:id="@+id/reset_button"
-                android:text="@string/reset_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"/>
-
-
-        <Button
-                android:id="@+id/about_button"
-                android:text="@string/about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/ic_launcher"/>
 
     <ListView
             android:id="@android:id/list"
@@ -38,6 +25,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
+            android:textSize="16sp"
             android:text="@string/no_unreadsms"/>
 
 

@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.paypal.android.MEP.CheckoutButton;
 import com.paypal.android.MEP.PayPal;
 
-import java.util.Locale;
-
 /**
  * @author tom
  */
@@ -51,7 +49,7 @@ public class ResetUnreadSms
 
     private Button resetButton;
 
-    private AboutDialog aboutDialog;
+//    private AboutDialog aboutDialog;
 
     /**
      * Called when the activity is first created.
@@ -69,14 +67,14 @@ public class ResetUnreadSms
             }
         });
 
-        aboutDialog = new AboutDialog(this);
-        Button aboutButton = (Button) findViewById(R.id.about_button);
-        aboutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aboutDialog.show();
-            }
-        });
+//        aboutDialog = new AboutDialog(this);
+//        Button aboutButton = (Button) findViewById(R.id.about_button);
+//        aboutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                aboutDialog.show();
+//            }
+//        });
 
         initLibrary();
         Log.i("RUS", "paypal instance=" + PayPal.getInstance());

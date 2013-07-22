@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Reset Unread Sms</string>
     <string name="unreadsms_label">Unread Sms list :</string>
-    <string name="no_unreadsms">No unread sms found.\n\n\nClick on \'Mark all as read\'\nsome SMS are sneaky !</string>
+    <string name="no_unreadsms">No unread sms found.\n\n\nClick on <i>Mark all as read</i>\nsome SMS are sneaky !</string>
     <string name="reset_button">Mark all as read</string>
     <string name="reset_done">All your SMS have been marked as read !</string>
     <string name="loading_sms">Loading unread SMS…</string>
