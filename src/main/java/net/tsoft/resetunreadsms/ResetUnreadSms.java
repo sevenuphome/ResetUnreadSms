@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paypal.android.MEP.CheckoutButton;
@@ -47,7 +48,9 @@ public class ResetUnreadSms
 
     private final static String SMS_ADDRESS = "address";
 
-    private Button resetButton;
+    private Button mResetButton;
+
+    private TextView mEmptyTextView;
 
 //    private AboutDialog aboutDialog;
 
@@ -59,13 +62,15 @@ public class ResetUnreadSms
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        resetButton = (Button) findViewById(R.id.reset_button);
-        resetButton.setOnClickListener(new View.OnClickListener() {
+        mResetButton = (Button) findViewById(R.id.reset_button);
+        mResetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resetUnreadSms();
             }
         });
+
+        mEmptyTextView = (TextView) findViewById(android.R.id.empty);
 
 //        aboutDialog = new AboutDialog(this);
 //        Button aboutButton = (Button) findViewById(R.id.about_button);
@@ -117,6 +122,7 @@ public class ResetUnreadSms
     private void resetUnreadSms() {
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
         dialog.setMessage(getString(R.string.processing));
         dialog.show();
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
@@ -134,6 +140,7 @@ public class ResetUnreadSms
                 dialog.dismiss();
                 fillList();
                 Toast.makeText(ResetUnreadSms.this, R.string.reset_done, Toast.LENGTH_LONG).show();
+                mEmptyTextView.setText(R.string.thanks);
             }
         };
         task.execute();
