@@ -20,9 +20,13 @@ import android.widget.Toast;
 import com.paypal.android.MEP.CheckoutButton;
 import com.paypal.android.MEP.PayPal;
 
+import org.androidannotations.annotations.EActivity;
+
+
 /**
  * @author tom
  */
+@EActivity
 public class ResetUnreadSms
         extends ListActivity {
     private final static String SMS_CONTENT_URI = "content://sms";

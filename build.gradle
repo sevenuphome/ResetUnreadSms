@@ -8,6 +8,11 @@ buildscript {
     }
 }
 
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
 apply plugin: 'android'
 
 dependencies {
@@ -23,6 +28,7 @@ android {
         targetSdkVersion 17
         versionCode 8
         versionName '1.8'
+        packageName 'net.tsoft.resetunreadsms'
     }
 
     signingConfigs {
@@ -44,4 +50,45 @@ android {
         }
     }
 
+}
+
+apply plugin: AndroidAnnotationsPlugin
+
+class AndroidAnnotationsPlugin implements Plugin<Project> {
+    void apply(Project project) {
+
+        // get plugin configuration
+        println "Initializing AndroidAnnotations plugin"
+        project.extensions.create("androidannotations", AndroidAnnotationsPluginExtension)
+        def version = project.androidannotations.version
+        def groupId = 'org.androidannotations'
+        def packageName = project.android.defaultConfig.packageName
+        println "package $packageName, version = $version"
+
+        // add required dependencies
+        project.configurations.create('apt')
+        project.dependencies.add("apt", "$groupId:androidannotations:$version")
+        project.dependencies.add("compile", "$groupId:androidannotations-api:$version")
+
+        // add apt task to each applicationVariants
+        project.android.applicationVariants.each { variant ->
+
+            def aptOutput = project.file("${project.buildDir}/source/apt_generated/${variant.dirName}")
+
+            variant.javaCompile.doFirst {
+                println "*** compile doFirst ${variant.name}"
+                aptOutput.mkdirs()
+                variant.javaCompile.options.compilerArgs += [
+                        '-processorpath', project.configurations.apt.getAsPath(),
+                        '-s', aptOutput,
+                        "-AandroidManifestFile=${variant.processResources.manifestFile}",
+                        "-AresourcePackageName=$packageName"
+                ]
+            }
+        }
+    }
+}
+
+class AndroidAnnotationsPluginExtension {
+    def version = '3.0-SNAPSHOT'
 }
