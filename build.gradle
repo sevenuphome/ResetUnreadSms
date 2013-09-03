@@ -17,7 +17,9 @@ apply plugin: 'android'
 
 dependencies {
     compile files('libs/PayPal_MPL.jar')
+//    compile 'org.androidannotations:androidannotations-api:3.0-SNAPSHOT'
 }
+
 
 android {
     compileSdkVersion 17
@@ -50,69 +52,70 @@ android {
         }
     }
 
+
 }
 
 apply plugin: AndroidAnnotationsPlugin
+androidannotations.version '3.0-SNAPSHOT'
 
 class AndroidAnnotationsPlugin implements Plugin<Project> {
     void apply(Project project) {
 
         // get plugin configuration
-        println "Initializing AndroidAnnotations plugin"
-        project.extensions.create("androidannotations", AndroidAnnotationsPluginExtension)
-        def version = project.androidannotations.version
-        def groupId = 'org.androidannotations'
-//        def packageName = project.android.defaultConfig.packageName
-        def packageName = 'net.tsoft.resetunreadsms'
-        println "package $packageName, version = $version"
 
-        // add required dependencies
-        project.configurations.create('apt')
-        project.dependencies.add("apt", "$groupId:androidannotations:$version")
-        project.dependencies.add("compile", "$groupId:androidannotations-api:$version")
+        project.extensions.create('androidannotations', AndroidAnnotationsPluginExtension)
+        project.afterEvaluate {
+            def packageName = project.androidannotations.packageName ?: project.android.defaultConfig.packageName
+            def version = project.androidannotations.version
+            def groupId = 'org.androidannotations'
 
-        // add apt task to each applicationVariants
-        project.android.applicationVariants.all { variant ->
+            project.configurations.create('apt')
+            project.dependencies.add("apt", "$groupId:androidannotations:$version")
+            project.dependencies.add("compile", "$groupId:androidannotations-api:$version")
 
+            // directory of the AA generated classes
             def aptOutputDir = project.file("build/source/apt_generated")
-            def aptOutput = new File(aptOutputDir, variant.dirName)
-//            def aptOutput = project.file("${project.buildDir}/source/apt_generated/${variant.dirName}")
 
-            project.android.sourceSets[getSourceSetName(variant)].java.srcDirs += aptOutput.getPath()
-//
-//            variant.javaCompile.doFirst {
-//                println "*** compile doFirst ${variant.name}"
-//                aptOutput.mkdirs()
-//                variant.javaCompile.options.compilerArgs += [
-//                        '-processorpath', project.configurations.apt.getAsPath(),
-//                        '-s', aptOutput,
-//                        "-AandroidManifestFile=${variant.processResources.manifestFile}",
-//                        "-AresourcePackageName=$packageName"
-//                ]
-//            }
+            // add apt task to each applicationVariants
+            project.android.applicationVariants.all { variant ->
 
-            variant.javaCompile.options.compilerArgs += [
-                    '-processorpath', project.configurations.apt.getAsPath(),
-                    '-s', aptOutput,
-                    "-AandroidManifestFile=${variant.processResources.manifestFile}",
-                    "-AresourcePackageName=$packageName"
-            ]
+                def newTask = "androidAnnotationsProcess${variant.name}"
+                project.task(newTask) << {
+                    def aptOutput = new File(aptOutputDir, variant.dirName)
+                    println "Creating new task $newTask to generate class in ${aptOutput.path}"
 
-            variant.javaCompile.source = variant.javaCompile.source.filter { p ->
-                return !p.getPath().startsWith(aptOutputDir.getPath())
-            }
 
-            variant.javaCompile.doFirst {
-                aptOutput.mkdirs()
+                    project.android.sourceSets[getSourceSetName(variant)].java.srcDirs += aptOutput.getPath()
+
+                    variant.javaCompile.options.compilerArgs += [
+                            '-processorpath', project.configurations.apt.getAsPath(),
+                            '-s', aptOutput,
+                            "-AandroidManifestFile=${variant.processResources.manifestFile}",
+                            "-AresourcePackageName=$packageName"
+                    ]
+
+                    variant.javaCompile.source = variant.javaCompile.source.filter { p ->
+                        return !p.getPath().startsWith(aptOutputDir.getPath())
+                    }
+
+                    variant.javaCompile.doFirst {
+                        aptOutput.mkdirs()
+                    }
+                }
+
+                project.("compile${variant.name}").dependsOn(newTask)
             }
         }
+
     }
 
     def getSourceSetName(variant) {
         return new File(variant.dirName).getName();
     }
+
 }
 
 class AndroidAnnotationsPluginExtension {
-    def version = '3.0-SNAPSHOT'
+    def version
+    def packageName
 }
