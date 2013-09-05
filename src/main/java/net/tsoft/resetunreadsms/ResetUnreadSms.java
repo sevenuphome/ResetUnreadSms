@@ -1,9 +1,11 @@
 package net.tsoft.resetunreadsms;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import com.paypal.android.MEP.CheckoutButton;
 import com.paypal.android.MEP.PayPal;
+
+import java.util.Locale;
 
 /**
  * @author tom
@@ -52,8 +56,6 @@ public class ResetUnreadSms
 
     private TextView mEmptyTextView;
 
-//    private AboutDialog aboutDialog;
-
     /**
      * Called when the activity is first created.
      */
@@ -73,25 +75,33 @@ public class ResetUnreadSms
 
         mEmptyTextView = (TextView) findViewById(android.R.id.empty);
 
-//        aboutDialog = new AboutDialog(this);
-//        Button aboutButton = (Button) findViewById(R.id.about_button);
-//        aboutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                aboutDialog.show();
-//            }
-//        });
-
         initLibrary();
-        Log.i("RUS", "paypal instance=" + PayPal.getInstance());
-        CheckoutButton checkoutButton = PayPal.getInstance().getCheckoutButton(this, PayPal.BUTTON_278x43, CheckoutButton.TEXT_DONATE);
+        final CheckoutButton checkoutButton = PayPal.getInstance().getCheckoutButton(this, PayPal.BUTTON_278x43, CheckoutButton.TEXT_DONATE);
+        FrameLayout frameLyout = (FrameLayout) findViewById(R.id.donate_button);
+        frameLyout.addView(checkoutButton);
         checkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchBrowser(ResetUnreadSms.this, getString(R.string.paypal_link));
+                checkoutButton.updateButton();
+                new AlertDialog.Builder(ResetUnreadSms.this).
+                        setTitle(R.string.pick_currency).
+                        setItems(R.array.currencies, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which) {
+                                    case 0:
+                                        launchBrowser(ResetUnreadSms.this, getString(R.string.paypal_link_eur));
+                                        break;
+
+                                    case 1:
+                                        launchBrowser(ResetUnreadSms.this, getString(R.string.paypal_link_usd));
+                                        break;
+                                }
+                            }
+                        }).create().show();
             }
         });
-        ((FrameLayout) findViewById(R.id.donate_button)).addView(checkoutButton);
+
 
         fillList();
     }
@@ -102,21 +112,21 @@ public class ResetUnreadSms
         if (pp == null) {  // Test to see if the library is already initialized
 
             // This main initialization call takes your Context, AppID, and target server
-            pp = PayPal.initWithAppID(this, "thomas.bruyelle@gmail.com", PayPal.ENV_NONE);
+            pp = PayPal.initWithAppID(this, "", PayPal.ENV_NONE);
 
             // Required settings:
 
             // Set the language for the library
-//            pp.setLanguage(Locale.getDefault().getLanguage());
+            pp.setLanguage(Locale.getDefault().toString());
 
             // Some Optional settings:
 
             // Sets who pays any transaction fees. Possible values are:
             // FEEPAYER_SENDER, FEEPAYER_PRIMARYRECEIVER, FEEPAYER_EACHRECEIVER, and FEEPAYER_SECONDARYONLY
-            pp.setFeesPayer(PayPal.FEEPAYER_EACHRECEIVER);
+//            pp.setFeesPayer(PayPal.FEEPAYER_EACHRECEIVER);
 
             // true = transaction requires shipping
-            pp.setShippingEnabled(true);
+            pp.setShippingEnabled(false);
         }
     }
 

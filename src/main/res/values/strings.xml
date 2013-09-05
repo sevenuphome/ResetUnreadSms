@@ -16,11 +16,6 @@
         If this application prevent you from throwing your phone out the
         window :
     </string>
-    <string name="donate_link">
-        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=JYZV4FB5UG3BN&amp;lc=FR&amp;item_name=Thomas%20Bruyelle&amp;item_number=Reset%20Unread%20Sms&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">
-            Please donate
-        </a>
-    </string>
     <string name="sms_from">
         <b>From</b>
     </string>
@@ -34,4 +29,11 @@
         <b>Status</b>
     </string>
     <string name="processing">Processing…</string>
+    <string name="paypal_link_usd" formatted="false">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WX8XCTC334VFN</string>
+    <string name="paypal_link_eur" formatted="false">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VM7UW6FNWWH8Q</string>
+    <string-array name="currencies">
+        <item>Euro / €</item>
+        <item>Dollar / $</item>
+    </string-array>
+    <string name="pick_currency">Pick a currency</string>
 </resources>
